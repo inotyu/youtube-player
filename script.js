@@ -19,7 +19,7 @@ function aoPlayerPronto(event) {
     document.getElementById('pausar').addEventListener('click', () => player.pauseVideo());
     document.getElementById('parar').addEventListener('click', () => player.stopVideo());
 }
-
+verificarentrada();
 function aoAlterarEstadoPlayer(event) {
     if (event.data === YT.PlayerState.ENDED) {
         carregarProximoVideo();
@@ -45,6 +45,12 @@ function configurarPlayer(idVideo) {
     const containerMiniatura = document.querySelector('.container-miniatura');
     containerMiniatura.innerHTML = '';
     containerMiniatura.appendChild(imagemMiniatura);
+
+function verificarentrada() {
+    const palavras = ["mateus", "deborah", "henrique", "gean"]
+    const pegar = document.getElementById("url-video").value.toLowerCase();
+    if (palavras.incluedes(pegar)) {
+        window.location.href = "https://www.seusite.com";
 
     if (player) {
         player.loadVideoById(idVideo);
