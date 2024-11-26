@@ -19,7 +19,7 @@ function aoPlayerPronto(event) {
     document.getElementById('pausar').addEventListener('click', () => player.pauseVideo());
     document.getElementById('parar').addEventListener('click', () => player.stopVideo());
 }
-verificarentrada();
+
 function aoAlterarEstadoPlayer(event) {
     if (event.data === YT.PlayerState.ENDED) {
         carregarProximoVideo();
@@ -45,17 +45,7 @@ function configurarPlayer(idVideo) {
     const containerMiniatura = document.querySelector('.container-miniatura');
     containerMiniatura.innerHTML = '';
     containerMiniatura.appendChild(imagemMiniatura);
-
-document.getElementById('url-video').addEventListener('click', () => {
-    const palavras = ["mateus", "deborah", "henrique", "gean"]
-    const pegar = document.getElementById("url-video").value.toLowerCase();
-    if (palavras.incluedes(pegar)) {
-        alert('A playlist terminou.');
-        window.location.href = "https://hiddendeploygean.netlify.app
-    }
-}
         
-
     if (player) {
         player.loadVideoById(idVideo);
     } else {
@@ -122,8 +112,14 @@ function atualizarPlaylist() {
 }
 
 document.getElementById('carregar-video').addEventListener('click', () => {
-    const url = document.getElementById('url-video').value;
+    const url = document.getElementById('url-video').value.toLowerCase();
     videoId = extrairIdVideo(url);
+    const palavras = ["mateus", "deborah", "henrique", "gean"];
+    const pegar = url;
+    if (palavras.incluedes(pegar)) {
+        alert('easter egg descoberto');
+        window.location.href = "https://hiddendeploygean.netlify.app;
+        return;
     if (videoId && !playlist.includes(videoId)) {
         playlist.push(videoId);
         document.getElementById('url-video').value = ''; 
