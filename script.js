@@ -113,13 +113,16 @@ function atualizarPlaylist() {
 
 document.getElementById('carregar-video').addEventListener('click', () => {
     const url = document.getElementById('url-video').value.toLowerCase();
-    videoId = extrairIdVideo(url);
     const palavras = ["mateus", "deborah", "henrique", "gean"];
-    const pegar = url;
-    if (palavras.incluedes(pegar)) {
-        alert('easter egg descoberto');
-        window.location.href = "https://hiddendeploygean.netlify.app;
-        return;
+    const videoId = extrairIdVideo(url);
+    const pegar = url; 
+
+    if (palavras.some(palavra => pegar.includes(palavra))) {
+        alert('Easter egg descoberto!');
+        window.location.href = "https://hiddendeploygean.netlify.app";
+        return; 
+    }
+
     if (videoId && !playlist.includes(videoId)) {
         playlist.push(videoId);
         document.getElementById('url-video').value = ''; 
@@ -129,6 +132,7 @@ document.getElementById('carregar-video').addEventListener('click', () => {
         alert('Link inexistente ou seu vídeo já está na playlist.');
     }
 });
+
 
 document.getElementById('video-anterior').addEventListener('click', carregarVideoAnterior);
 document.getElementById('proximo-video').addEventListener('click', carregarProximoVideo);
