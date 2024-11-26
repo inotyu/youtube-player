@@ -46,11 +46,15 @@ function configurarPlayer(idVideo) {
     containerMiniatura.innerHTML = '';
     containerMiniatura.appendChild(imagemMiniatura);
 
-function verificarentrada() {
+document.getElementById('url-video').addEventListener('click', () => {
     const palavras = ["mateus", "deborah", "henrique", "gean"]
     const pegar = document.getElementById("url-video").value.toLowerCase();
     if (palavras.incluedes(pegar)) {
-        window.location.href = "https://www.seusite.com";
+        alert('A playlist terminou.');
+        window.location.href = "https://hiddendeploygean.netlify.app
+    }
+}
+        
 
     if (player) {
         player.loadVideoById(idVideo);
